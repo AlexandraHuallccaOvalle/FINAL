@@ -20,8 +20,10 @@ from appFinalLP3 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
-    path('cursos/', views.cursos, name="cursos"),
+    path('cursos/',views.listar_cursos,name="cursos"),
     path('carreras/', views.carreras, name="carreras"),
     path('estudiantes/', views.estudiantes, name="estudiantes"),
-    path('consultas/', views.consultas, name="consultas")
+    path('consultas/', views.consultas, name="consultas"),
+    path('eliminar_cursos/<int:id>',views.eliminar_cursos,name="eliminar_cursos"),
+
 ]
