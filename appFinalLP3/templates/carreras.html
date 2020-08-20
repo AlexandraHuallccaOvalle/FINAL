@@ -4,6 +4,26 @@
     carreras
 {% endblock  %}
 
-{% block content %}
+{% block contenedor %}
     <p>listado de carreras </p>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Nombre corto</th>
+        <th>Estado</th>
+        <th>Herramientas</th>
+    </tr>
+    {% for c in carreras%}
+        <tr>
+            <td>{{c.id}}</td>
+            <td>{{c.nombre}}</td>
+            <td>{{c.nombrecorto}}</td>
+            <td>{{c.estado}}</td><br>
+            <td><a href="/eliminar_carreras/{{c.id}}">Eliminar</a></td>   
+        </tr>
+    {%endfor%}
+</table>
+
 {% endblock  %}

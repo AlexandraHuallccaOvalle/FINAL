@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from appFinalLP3.models import Curso
+from appFinalLP3.models import Curso, Carrera
 
 # Create your views here.
 def index(request):
@@ -34,3 +34,24 @@ def eliminar_cursos(request,id):
     cursos = Curso.objects.get(pk=id)
     cursos.delete()
     return redirect('cursos')
+
+def save_carrera(request,nombre,nombrecorto,fecha_fundacion,estado):
+    carreras = Carrera(
+        nombre = nombre,
+        nombrecorto = nombrecorto,
+        fecha_fundacion = fecha_fundacion,
+        estado = estado,
+    )
+    carreras.save()
+    return HttpResponse(F"Carrera Creado: {carreras.nombre}-{carreras.nombrecorto}")
+
+def listar_carreras(request):
+    carreras = Carrera.objects.all()
+    return render(request,'carreras.html',{
+        'carreras': carreras,
+
+    })
+def eliminar_carreras(request,id):
+    carreras = Carrera.objects.get(pk=id)
+    carreras.delete()
+    return redirect('carreras')
