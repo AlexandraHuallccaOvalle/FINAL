@@ -1,9 +1,25 @@
-{% extends 'layout.html' %}
+{%extends 'layout.html'%}
+{%block title %}
+Saludo -
+{%endblock%}
 
-{% block title %}
-    consultas
-{% endblock  %}
+{%block contenedor%}
+<h1 class="title">Bienvenidos</h1>
+<form action="" method="get">
+    <label for="Nombre">Nombre: </label>
+    <input type="text">
+    <label for="Correo">Correo: </label>
+    <input type="text">
+    <p>Sexo: </p>
+    <input type="radio" id="masculino" name="genero" value="masculino">
+    <label for="masculino">Masculino</label><br>
+    <input type="radio" id="femenino" name="genero" value="femenino">
+    <label for="femenino">Femenino</label><br>
+    <input type="radio" id="otro" name="genero" value="otro">
+    <label for="otro">Otro</label><br>
+    <label for="Consulta">Consulta: </label>
+    <input type="text">
+    <input type="submit" value="Enviar">
 
-{% block content %}
-    <p> consultas y comentarios </p>
-{% endblock  %}
+</form>>
+{% endblock %}
