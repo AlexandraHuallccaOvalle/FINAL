@@ -4,6 +4,30 @@
     estudiantes
 {% endblock  %}
 
-{% block content %}
+{% block contenedor %}
     <p>listado de estudiantes </p>
+    <table>
+    <tr>
+        <th>ID</th>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>DNI</th>
+        <th>Direccion</th>
+        <th>Fecha de Nacimiento</th>
+        <th>Estado</th>
+    </tr>
+    {% for e in estudiantes%}
+        <tr>
+            <td>{{e.id}}</td>
+            <td>{{e.nombre}}</td>
+            <td>{{e.apellidos}}</td>
+            <td>{{e.dni}}</td>
+            <td>{{e.direccion}}</td>
+            <td>{{e.fecha_nacimiento}}</td><br>
+            <td>{{e.estado}}</td>
+            <td><a href="/eliminar_estudiante/{{e.id}}">Eliminar</a></td>   
+        </tr>
+    {%endfor%}
+</table>
 {% endblock  %}
